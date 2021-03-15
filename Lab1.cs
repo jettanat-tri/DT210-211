@@ -15,13 +15,13 @@ public class Lab1 : MonoBehaviour
     private Rigidbody earthRB;
 
     //## PART 2 VALUE##-------------------------
-    //private Vector3 initialVelocity = new Vector3(0.0f, 0.0f, 15.0f);
+    private Vector3 initialVelocity = new Vector3(0.0f, 0.0f, 15.0f);
     //Sun Mass = 50000
     //Earth Mass = 100
     //Original pos: earth X: 4.33
 
     //## PART 1 VALUE##-------------------------
-    private Vector3 initialVelocity = new Vector3(0, 0, 50.0f);
+    //private Vector3 initialVelocity = new Vector3(0, 0, 50.0f);
     //Sun Mass = 100000
     //Earth Mass = 0.001
     //Original pos: earth X: 13.5
@@ -69,15 +69,15 @@ public class Lab1 : MonoBehaviour
         prevPosition = earth.transform.position;
         acceleration = (calForce()*0.1f / earthRB.mass);
         //Part 1 -------------------------------------
-        earthRB.AddForce(calForce() * 0.1f, ForceMode.VelocityChange);
+        //earthRB.AddForce(calForce() * 0.1f, ForceMode.VelocityChange);
         //Part 2 -------------------------------------
-        //earth.transform.position += (velocity * time + 0.5f * acceleration * time * time);
+        earth.transform.position += (velocity * time + 0.5f * acceleration * time * time);
 
         newPosition = earth.transform.position;
         velocity = (newPosition - prevPosition) / time;
         //Part 1 print
-        //Debug.Log("Velocity: " + velocity);
+        Debug.Log("Velocity: " + velocity);
         //Part 2 print
-        Debug.Log("Velocity: " + earthRB.velocity);
+        //Debug.Log("Velocity: " + earthRB.velocity);
     }
 }
